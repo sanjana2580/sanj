@@ -9,10 +9,10 @@ pipeline {
         stage('Check and remove container'){
             steps{
                 script{
-                    def containerExists = sh(script: "docker ps -q -f name=abc", returnStdout: true).trim()
+                    def containerExists = sh(script: "docker ps -q -f name=sanju", returnStdout: true).trim()
                     if (containerExists) {
-                    sh "docker stop abc"
-                    sh "docker rm abc"
+                    sh "docker stop sanju"
+                    sh "docker rm sanju"
                     }
                 }
             }
@@ -59,7 +59,7 @@ pipeline {
             echo 'Deployment successful'
         }
         failure {
-            sh 'docker rm -f abc'
+            sh 'docker rm -f sanju'
         }
         always{
             echo 'Deployed'
