@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools{
-        maven 'Maven'
+        maven 'maven'
     }
 
     stages{
@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Create image'){
             steps{
-                sh 'sudo docker build -t app /var/lib/jenkins/workspace/webapp/'
+                sh 'sudo docker build -t app /var/lib/jenkins/workspace/app/'
             }
         }
         stage('Assign tag'){
